@@ -1,0 +1,365 @@
+body {
+    font-family: Jura, Arial, Sans-Serif;
+    margin: 0px;
+    background-color: #ffeccf;
+}
+
+header {
+    padding: 30px 0px;
+    background-color: #ffeccf;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: -5px 5px 30px;
+}
+
+#logo {
+    position: absolute;
+    margin-top: -17.64px;
+    margin-left: 927px;
+}
+
+#logo:hover{
+    transform: scale(1.2);
+    transition: 0.2s;
+}
+
+.contato a {
+    text-decoration: none;
+    color: #000000;
+    padding: 30px;
+    font-weight: 700;
+}
+
+.contato a:hover {
+    color: #ffeccf;
+    background-color: #000000;
+}
+
+.texto {
+    display: inline-block;
+}
+
+.texto:hover {
+    font-size: 35px;
+}
+
+
+
+
+
+/* CARROSSEL */
+
+.carrossel {
+    position: relative;
+    height: 867px;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slides {
+    display: flex;
+    transition: 0.5s ease-in-out;
+    flex-direction: column; /* Empilha os slides verticalmente */
+    height: 100%; /* Garante que os slides ocupem o espaço correto */
+}
+
+.slide {
+    /* height: 100%; */
+    transition: 0.5s;
+    flex-shrink: 0; /* Evita que os slides encolham */
+}
+
+.slide img {
+    height: 100%;
+    object-fit: cover; /* Mantém a proporção da imagem */
+}
+
+/* Botões de navegação */
+.prev, .next {
+    position: absolute;
+    /* Para botões da horizontal: */
+    /* transform: translateY(-50%); */
+    /* top: 50%; */
+
+    /* Para botões da vertical: */
+    transform: translateX(-50%);
+    left: 50%;
+    
+    background: none;
+    color: white;
+    border: none;
+    padding: 10px 15px 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.5s ease;
+}
+
+.prev {
+    top: 0px;
+}
+
+.next {
+    bottom: 0px;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.galeria {
+    position: absolute;
+    margin-top: -100px;
+    background-color: #ffeccf;
+    font-size: 30px;
+    font-family: Jura, Arial, Sans-Serif;
+    border: none;
+    font-weight: bold;
+}
+
+.galeria:hover {
+    font-size: 35px;
+    transition: 0.2s;
+}
+
+
+
+
+/* CORPO DA PÁGINA (HOME) */
+
+h1 {
+    font-size: 30px;
+    background-color: #000000;
+    color: #ffeccf;
+    padding: 20px 3%;
+    margin: 40px 10% 0px 10%;
+}
+
+h2 {
+    font-size: 25px;
+    margin: 50px 0px 0px 14%
+}
+
+.h2_1 {
+    margin-top: 20px;
+}
+
+p {
+    padding: 20px;
+    margin: 20px 15%;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: justify;
+    box-shadow: -5px 5px 30px;
+}
+
+.imgcorpo {
+    text-align: center;
+}
+
+figcaption {
+    text-align: right;
+    margin-right: 25%;
+}
+
+.video_centro {
+    text-align: center;
+}
+
+.video {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 0px 40px;
+}
+
+
+
+
+
+
+
+/* CORPO DA PÁGINA (GALERIA) */
+
+.h1 {
+    font-size: 30px;
+    text-align: center;
+    background-color: #000000;
+    color: #ffeccf;
+    margin: 28px 8px 0px;
+}
+
+.gal_grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    align-items: center;
+}
+
+.gal_coluna{
+    flex: 30%;
+    /* max-width: 30%; */
+    padding: 0 4px;
+}
+
+.gal_coluna img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.gal_coluna img:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 800px) {
+    .gal_coluna {
+      flex: 50%;
+      max-width: 50%;
+    }
+}
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .gal_coluna      {
+      flex: 100%;
+      max-width: 100%;
+    }
+}
+
+
+
+
+
+/* CORPO DA PÁGINA (MODELOS) */
+table {
+    text-align: center;
+    border-spacing: 0px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    margin: 40px auto;
+    box-shadow: -5px 5px 30px;
+}
+
+th {
+    background-color: #000000;
+    color: #ffeccf;
+    padding: 10px 20px;
+}
+
+td {
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    padding: 10px 20px;
+}
+
+.marca {
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.vid {
+    display: block;
+}
+
+.vid_1 {
+    margin: -40% 0px 0px 8%;
+}
+
+.vid_2 {
+    text-align: right;
+    margin: -38% 8% 0px 0px;
+}
+
+
+
+
+
+/* CORPO DA PÁGINA (CONTATO) */
+
+fieldset {
+    margin: 20px 35% 0px;
+    border-color: #000;
+    border-width: 3px;
+    /* border: none; */ 
+}
+
+h3 {
+    font-size: 25px;
+    margin: 40px 0px 20px 20px;
+}
+
+.h3_1 {
+    margin-top: 10px;
+}
+
+fieldset p {
+    margin: 20px;
+}
+
+textarea {
+    box-shadow: -5px 5px 30px;
+    margin: 0px 20px 20px 20px;
+    resize: none;
+    font-family: Jura, Arial, Sans-Serif;
+    font-size: 15px;
+}
+
+#enviar {
+    text-align: right;
+    margin: 5px 35% 0px 0px;
+}
+
+#enviar input {
+    background-color: #ffeccf;
+    font-size: 15px;
+    font-family: Jura, Arial, Sans-Serif;
+    font-weight: bold;
+}
+
+#enviar input:hover {
+    transform: scale(1.2);
+    transition: 0.2s;
+}
+
+.mapa {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+
+
+
+
+/* RODAPÉ */
+
+footer {
+    padding: 30px 10%;
+    background-color: #ffeccf;
+    font-size: 20px;
+    box-shadow: -5px 5px 30px;
+    margin-top: 80px;
+}
+
+.rodape {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodape a {
+    text-decoration: none;
+    color: #000000;
+    padding: 0px 20px;
+}
+
+.rodape a:hover {
+    text-decoration: underline;
+}
+
+#redes {
+    text-align: center;
+    margin: 4% 0px -7.8% 0px;
+}

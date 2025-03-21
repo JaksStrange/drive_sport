@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Drive Sport</title>
+    <link rel="stylesheet" href="style_drive_sport.css">
+    <link rel="icon" href="imagens/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Monda:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+
+<!-- LOGO -->
+        <div id="logo">
+            <a href="index_drive_sport.html"><img src="imagens/logo/logo.png" alt="" width="50px"></a>
+        </div>
+
+<!-- MENU -->
+        <nav class="contato">
+                <a href="index_drive_sport.html">INÍCIO</a>
+                <a href="galeria.html">GALERIA</a>
+                <a href="modelos.html">MODELOS</a>
+        </nav>        
+
+        <div class="contato">
+                <a href="contato.html">CONTATO</a>
+        </div>
+    </header>
+
+<!-- CARROSSEL -->
+    <div class="carrossel">
+        <div class="slides">
+            <div class="slide"><img src="imagens/carros/1964-pontiac-gto.png" alt="Imagem 1"></div>
+            <div class="slide"><img src="imagens/carros/1970-chevrolet-chevelle-ss-454.png" alt="Imagem 2"></div>
+            <div class="slide"><img src="imagens/carros/1979-chevrolet-camaro-z28.png" alt="Imagem 3"></div>
+            <div class="slide"><img src="imagens/carros/mustang_boss_302_1969.png" alt="Imagem 4"></div>
+            <div class="slide"><img src="imagens/carros/1971-Plymouth-HEMI-Barracuda.png" alt="Imagem 5"></div>
+            <div class="slide"><img src="imagens/carros/1979-Pontiac-Trans-Am-TA-6.png" alt="Imagem 6"></div>
+            <div class="slide"><img src="imagens/carros/Buick-GSX-455-Stage-1.png" alt="Imagem 7"></div>
+            <div class="slide"><img src="imagens/carros/dodge-charger-rt-1970.png" alt="Imagem 8"></div>
+            <div class="slide"><img src="imagens/carros/1964-pontiac-gto.png" alt="Imagem 1 - Cópia"></div> <!-- Cópia do primeiro slide -->
+        </div>
+        <button class="prev" onclick="mudarSlide(-1)">&#9650;</button>
+        <button class="next" onclick="mudarSlide(1)">&#9660;</button>
+    </div>
+
+    <!-- BOTÔES DE NAVEGAÇÃO:
+
+    Esquerda: &#10094;
+    Direita: &#10095;
+    Cima: &#9650;
+    Baixo: &#9660; -->
+
+    <script>
+        let indiceSlide = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+        let intervaloAuto = setInterval(() => mudarSlide(1), 3000);
+
+        function mudarSlide(direcao) {
+            indiceSlide += direcao;
+
+            slides.style.transition = "transform 0.5s ease-in-out";
+            // Transição na horizontal:
+            // slides.style.transform = `translateX(${-indiceSlide * 100}%)`;
+            
+            // Transição na vertical:
+            slides.style.transform = `translateY(${-indiceSlide * 100}%)`;
+
+            // Quando chega no slide duplicado (última imagem falsa), reposiciona sem animação
+            if (indiceSlide === totalSlides - 1) {
+                setTimeout(() => {
+                    slides.style.transition = "none"; // Remove a transição temporariamente
+                    indiceSlide = 0; // Volta para o primeiro slide real
+
+                    // Transição na horizontal:
+                    // slides.style.transform = `translateX(${-indiceSlide * 100}%)`;
+            
+                    // Transição na vertical:
+                    slides.style.transform = `translateY(${-indiceSlide * 100}%)`;
+                }, 500); // Tempo da animação para não ser perceptível
+            }
+
+            if (indiceSlide === -1) {
+                setTimeout(() => {
+                    slides.style.transition = "none"; // Remove a transição temporariamente
+                    indiceSlide = 7;
+
+                    // Transição na horizontal:
+                    // slides.style.transform = `translateX(${-indiceSlide * 100}%)`;
+            
+                    // Transição na vertical:
+                    slides.style.transform = `translateY(${-indiceSlide * 100}%)`;
+                }, 500); // Tempo da animação para não ser perceptível
+            }
+
+            reiniciarAutoSlide();
+        }
+
+        function reiniciarAutoSlide() {
+            clearInterval(intervaloAuto);
+            intervaloAuto = setInterval(() => mudarSlide(1), 3000);
+        }
+    </script>
+
+    <a href="galeria.html"><button class="galeria">Ver GALERIA</button></a>
+
+<!-- CORPO DA PÁGINA -->
+    <h1>O que é um muscle car?</h1>
+    <p>
+        Um muscle car é um tipo de carro com motor de grande cilindrada, alta potência e design esportivo. Normalmente, é projetado com carroceria de cupê de duas portas e focado em desempenho e velocidade, geralmente têm um visual agressivo, com design esportivo e motores poderosos. Muscle cars sempre foram populares na América desde os anos 1950.
+        <br><br>
+        O termo "muscle car" surgiu nos anos 1960, quando os fabricantes começaram a produzir carros com grandes motores e altas potências para competir e exibir suas habilidades de engenharia. Esses carros rapidamente se tornaram populares entre os entusiastas e continuam a fazer parte do cenário automotivo.
+    </p>
+
+    <div class="imgcorpo"><img src="imagens/carros/Camaros-2.png" alt="" width="50%"></div>
+    <figcaption>Chevrolet Camaro SS 1967 e Camaro SS 2014 respectivamente</figcaption>
+
+    <h1 id="origem">História dos muscle cars americanos</h1>
+    <p>
+        A história dos muscle cars americanos pode ser rastreada até a década de 1950. Foi durante esse período que os fabricantes começaram a produzir carros com grandes motores e altas classificações de potência. Um dos primeiros carros a ser rotulado como "muscle car" foi o Pontiac GTO, lançado em 1964. O GTO rapidamente se tornou popular entre os entusiastas de carros e vendeu mais de um milhão de unidades nos seus primeiros três anos no mercado.
+        <br><br>
+        O Pontiac GTO foi seguido por outros muscle cars populares, como o Ford Mustang, o Chevrolet Camaro e o Dodge Charger. Esses carros se tornaram imensamente populares nas décadas de 1960 e 1970, ajudando a definir a era dos muscle cars. Os muscle cars dessa época eram conhecidos por seus motores potentes e designs aerodinâmicos.
+        <br><br>
+        Nas décadas de 1980 e 1990, os muscle cars começaram a se tornar menos populares à medida que os fabricantes mudaram seu foco para outros tipos de veículos. No entanto, ainda houve alguns muscle cars populares lançados nesse período, como o Chevrolet Corvette e o Dodge Viper.
+    </p>
+    
+    <div class="imgcorpo"><img src="imagens/carros/1964-pontiac-gto2.png" alt="" width="50%"></div>
+    <figcaption>Pontiac GTO 1964</figcaption>
+
+    <h1>Muscle cars mais populares</h1>
+    <h2 class="h2_1">Anos 60' e 70'</h2>
+    <p>
+        As décadas de 1960 e 1970 foram a idade de ouro dos muscle cars americanos. Durante esse período, os fabricantes lançaram alguns dos muscle cars mais icônicos de todos os tempos, como o Pontiac GTO, o Ford Mustang, o Chevrolet Camaro e o Dodge Charger. Esses carros eram conhecidos por seus motores poderosos e seus designs elegantes.
+        <br><br>
+        O Pontiac GTO foi um dos muscle cars mais populares da época. Lançado em 1964, rapidamente se tornou um sucesso entre os entusiastas de carros. O GTO era conhecido por seu motor potente e seu design estiloso. Também foi um dos primeiros carros a ser rotulado como "muscle car".
+        <br><br>
+        O Ford Mustang foi outro muscle car popular dessa época. Lançado em 1964, logo se tornou um sucesso entre os entusiastas de carros. O Mustang era conhecido por seu motor potente e seu design elegante. Também foi um dos primeiros carros a ser rotulado como "pony car".
+        <br><br>
+        O Chevrolet Camaro foi lançado em 1967 e rapidamente se tornou um sucesso entre os entusiastas de carros. O Camaro era conhecido por seu motor potente e seu design esportivo. Também foi um dos primeiros carros a ser rotulado como "pony car".
+        <br><br>
+        O Dodge Charger foi lançado em 1966 e rapidamente se tornou um sucesso entre os entusiastas de carros. O Charger era conhecido por seu motor potente e seu design agressivo. Também foi um dos primeiros carros a ser rotulado como "muscle car".
+    </p>
+
+    <h2>Anos 80' e 90'</h2>
+    <p>
+        Nas décadas de 1980 e 1990, os muscle cars começaram a se tornar menos populares à medida que os fabricantes mudaram seu foco para outros tipos de veículos. No entanto, ainda houve alguns muscle cars populares lançados nesse período, como o Chevrolet Corvette e o Dodge Viper.
+        <br><br>
+        O Chevrolet Corvette foi lançado em 1984 e rapidamente se tornou um sucesso entre os entusiastas de carros. O Corvette era conhecido por seu motor potente e seu design esportivo. Também foi um dos primeiros carros a ser rotulado como "sports car".
+        <br><br>
+        O Dodge Viper foi lançado em 1992 e rapidamente se tornou um sucesso entre os entusiastas de carros. O Viper era conhecido por seu motor potente e seu design agressivo. Também foi um dos primeiros carros a ser rotulado como "supercar".
+    </p>
+
+    <h2>Anos 2000 - atualmente</h2>
+    <p>
+        Nos últimos anos, os muscle cars fizeram um grande retorno. Os fabricantes de automóveis têm lançado novos modelos com designs modernos e motores poderosos. Alguns dos muscle cars mais populares de 2000 até hoje incluem o Ford Mustang, o Chevrolet Camaro e o Dodge Challenger.
+        <br><br>
+        O Ford Mustang foi lançado em 2005 e rapidamente se tornou um sucesso entre os entusiastas de carros. O Mustang era conhecido por seu motor potente e seu design estiloso. Também foi um dos primeiros carros a ser rotulado como "pony car".
+        <br><br>
+        O Chevrolet Camaro foi lançado em 2010 e rapidamente se tornou um sucesso entre os entusiastas de carros. O Camaro era conhecido por seu motor potente e seu design esportivo. Também foi um dos primeiros carros a ser rotulado como "pony car".
+        <br><br>
+        O Dodge Challenger foi lançado em 2008 e rapidamente se tornou um sucesso entre os entusiastas de carros. O Challenger era conhecido por seu motor potente e seu design agressivo. Também foi um dos primeiros carros a ser rotulado como "muscle car".
+    </p>
+    
+    <div class="imgcorpo"><img src="imagens/carros/museu_muscle_car_city.png" alt="" width="50%"></div>
+    <figcaption>Museu Muscle Car City - Flórida/EUA</figcaption>
+
+    <h1>Restauração de muscle cars</h1>
+    <p>
+        Nos últimos anos, tem crescido a tendência de restaurar muscle cars clássicos. Isso envolve pegar um muscle car clássico e restaurá-lo para uma condição "como novo". É um trabalho que exige muito tempo e dedicação, mas o resultado final é um carro clássico que parece e funciona como se tivesse saído diretamente da linha de montagem.
+        <br><br>
+        Restaurar muscle cars clássicos pode ser caro e demorado, mas é uma ótima maneira de preservar esses carros para as futuras gerações. Também é uma excelente oportunidade para os entusiastas de carros demonstrarem suas habilidades e seu trabalho artesanal.
+    </p>
+    
+    <div class="imgcorpo"><img src="imagens/carros/buick_gs_1971_restauracao.png" alt="" width="50%"></div>
+    <figcaption>Buick GS 1971 em restauração</figcaption>
+
+    <h1>O impacto dos muscle cars na cultura popular</h1>
+    <p>
+        Os muscle cars tiveram um grande impacto na cultura popular. Desde filmes e programas de TV até música e moda, os muscle cars estiveram presentes em quase todos os aspectos da cultura popular.
+        <br><br>
+        Os muscle cars também foram tema de algumas das músicas mais populares de todos os tempos. Canções como "Little Red Corvette" de Prince e "Mustang Sally" de Wilson Pickett são apenas alguns exemplos de músicas que destacam os muscle cars.
+        <br><br>
+        Os muscle cars também influenciaram o design de moda. Marcas como Nike e Adidas lançaram roupas com estampas de muscle cars clássicos, e a moda com temática de carros tem sido popular por décadas.
+    </p>
+    
+    <div class="imgcorpo"><img src="imagens/carros/velozes-e-furiosos-supra-e-charger.png" alt="" width="50%"></div>
+    <figcaption>Cena do filme "Velozes e Furiosos" com Dodge Charger e Toyota Supra</figcaption>
+
+    <div class="video_centro">
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/kKdgnPwkypk?si=-2Jk1ceRyTaE7EOT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/6W2vBlJwTns?si=YkmsiahSGnDK6JsL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <div id="redes">
+        <a href="https://www.facebook.com/?locale=pt_BR" target="_blank"><img src="logos/logo-facebook.png" class="icone_redes" alt="" width="50"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img src="logos/logo-instagram.png" class="icone_redes" alt="" width="50"></a>
+        <a href="https://www.youtube.com/" target="_blank"><img src="logos/logo-youtube.png" class="icone_redes" alt="" width="50"></a>
+    </div >
+
+<!-- RODAPÉ -->
+    <footer>
+        <div class="rodape">
+        <div>
+            <nav class="navrod">             
+                <a href="index_drive_sport.html">Início</a>
+                <a href="index_drive_sport.html#origem">Origem</a>
+                <a href="galeria.html">Galeria</a>
+                <a href="modelos.html">Modelos</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>        
+            <div>&copy; Drive Sport | 2025</div>
+        </div>
+    </footer>
+</body>
+</html>
